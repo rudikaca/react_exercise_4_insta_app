@@ -1,7 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
+import dummyData from "./dummy-data";
+import {useEffect, useState} from "react";
 
 function App() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    setData(dummyData)
+    console.log(data)
+  }, [data]);
+
   return (
     <div className="App">
       <header className="App-header">
