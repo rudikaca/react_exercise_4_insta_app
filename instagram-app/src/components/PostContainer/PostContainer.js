@@ -1,8 +1,11 @@
 import React from "react";
+import CommentSection from "../CommentSection/CommentSection";
 
 const PostContainer = () => {
     return (
-        <div>PostContainer</div>
+        <div>
+            <CommentSection />
+        </div>
     )
 }
 
