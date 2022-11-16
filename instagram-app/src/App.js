@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import dummyData from "./dummy-data";
 import {useEffect, useState} from "react";
