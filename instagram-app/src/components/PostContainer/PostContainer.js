@@ -1,12 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 import CommentSection from "../CommentSection/CommentSection";
 import './PostContainer.css';
 import {FaRegComment, FaRegHeart} from "react-icons/fa";
+import moment from "moment";
 
-const PostContainer = ({data}) => {
-    const TimeStamp = () => {
-        //
-    }
+const PostContainer = ({data, setData}) => {
 
     return (
         <>
@@ -26,10 +24,7 @@ const PostContainer = ({data}) => {
                     <p className="likes"><strong>{post.likes} likes</strong></p>
                 </div>
                 <div className="comments">
-                    <CommentSection comments={post.comments} />
-                </div>
-                <div className="timestamp">
-                    <span>{post.timestamp}</span>
+                    <CommentSection post={post} data={data} setData={setData} comments={post.comments} />
                 </div>
             </div>)}
         </>

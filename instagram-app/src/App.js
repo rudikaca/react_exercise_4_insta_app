@@ -8,14 +8,17 @@ function App() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    setData(dummyData)
-    console.log(data)
-  }, [data]);
+      if (JSON.parse(window.localStorage.getItem('dummyData')) === null) {
+        return setData(dummyData);
+      }
+
+    setData(JSON.parse(window.localStorage.getItem('dummyData')));
+  }, []);
 
   return (
     <div className="App">
       <SearchBar />
-      <PostContainer data={data} />
+      <PostContainer data={data} setData={setData} />
     </div>
   );
 }

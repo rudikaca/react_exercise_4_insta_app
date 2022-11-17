@@ -48,11 +48,3 @@
 .likes {
     margin: 2px 8px;
 }
-.timestamp {
-    text-align: left;
-    width: 95%;
-    color: gray;
-    margin: 4px 8px;
-    border-bottom: 1px solid gainsboro;
-    padding-bottom: 10px;
-}
