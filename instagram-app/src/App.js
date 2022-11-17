@@ -14,10 +14,8 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <SearchBar />
-        <PostContainer />
-      </header>
+      <SearchBar />
+      <PostContainer />
     </div>
   );
 }

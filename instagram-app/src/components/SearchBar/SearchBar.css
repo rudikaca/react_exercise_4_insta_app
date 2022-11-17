@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    height: 80px;
+    font-size: calc(10px + 2vmin);
+    background-color: darkslategrey;
+    padding: 0 25px 0 0;
+}
+.logo {
+    max-width: 220px;
+    max-height: 85px;
+}
+.input {
+    font-size: 15px;
+    border: white;
+    outline: none;
+    border-radius: 4px;
+    width: 200px;
+    height: 20px;
+    padding: 4px 10px;
+}
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
