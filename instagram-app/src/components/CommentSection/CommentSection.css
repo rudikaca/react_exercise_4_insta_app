@@ -18,8 +18,16 @@
 }
 .comment {
     margin: 4px 8px;
-
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 .comment > p {
     margin: 0;
+}
+.delete-icon {
+    color: darkred;
+    display: block;
+    margin-left: 10px;
+    cursor: pointer;
 }

@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import './CommentSection.css';
 import moment from "moment";
+import {RiDeleteBin6Line} from 'react-icons/ri'
 
 const CommentSection = ({comments, post, data, setData}) => {
     const [comment, setComment] = useState('');
@@ -24,11 +25,25 @@ const CommentSection = ({comments, post, data, setData}) => {
         }
     }
 
+    const handleDelete = (commentId) => {
+        const updatedPosts = data.map((updatedPost) => {
+            if (updatedPost.id === post.id) {
+                post.comments = post.comments.filter((com) => com.id !== commentId);
+            }
+
+            return updatedPost;
+        });
+
+        setData(updatedPosts);
+        localStorage.setItem('dummyData', JSON.stringify(updatedPosts));
+    }
+
     return (
         <>
             {comments?.map((comment) =>(
             <div className="comment" key={comment.id}>
                 <p><strong>{comment.username}</strong> {comment.text}</p>
+                {comment.username === 'Rudi' && <div className="delete-icon" onClick={() => handleDelete(comment.id)}><RiDeleteBin6Line/></div>}
             </div>))}
             <div className="timestamp">
                 <span>{moment().startOf('hour').fromNow()}</span>
