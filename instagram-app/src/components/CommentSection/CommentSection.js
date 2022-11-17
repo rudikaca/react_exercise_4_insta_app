@@ -7,7 +7,7 @@ const CommentSection = ({comments, post, data, setData}) => {
     const [comment, setComment] = useState('');
 
     const handleKey = (e) => {
-        if (e.key === "Enter") {
+        if (e.key === "Enter" && comment !== '') {
             const lastId = post.comments[post.comments.length-1];
             const finalComment = {id: lastId.id+1, username: 'Rudi', text: comment};
 
