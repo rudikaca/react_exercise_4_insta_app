@@ -1,8 +1,7 @@
-import React, {useState} from "react";
+import React from "react";
 import CommentSection from "../CommentSection/CommentSection";
 import './PostContainer.css';
 import {FaRegComment, FaRegHeart} from "react-icons/fa";
-import moment from "moment";
 
 const PostContainer = ({data, setData}) => {
 
