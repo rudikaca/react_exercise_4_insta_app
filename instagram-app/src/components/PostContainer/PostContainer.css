@@ -48,3 +48,6 @@
 .likes {
     margin: 2px 8px;
 }
+.active {
+    color: red;
+}

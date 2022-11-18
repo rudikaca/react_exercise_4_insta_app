@@ -5,6 +5,20 @@ import {FaRegComment, FaRegHeart} from "react-icons/fa";
 
 const PostContainer = ({data, setData}) => {
 
+    const likePost = (postId) => {
+        const updatedPost = data?.map((post) => {
+            if (!post.like && postId === post.id) {
+                return {...post, likes: post.likes + 1, like: true}
+            } else if (post.like && postId === post.id) {
+                return {...post, likes: post.likes - 1, like: false}
+
+            }
+            return {...post};
+        });
+        setData(updatedPost);
+        localStorage.setItem('dummyData', JSON.stringify(updatedPost));
+    }
+
     return (
         <>
             {data.map((post) =>
@@ -18,7 +32,7 @@ const PostContainer = ({data, setData}) => {
                         <img className="image" src={post.imageUrl} alt=""/>
                     </div>
                     <div className="icon-container">
-                        <FaRegHeart /><FaRegComment />
+                        <FaRegHeart className={post.like && 'active'} onClick={() => likePost(post.id)} /><FaRegComment />
                     </div>
                     <p className="likes"><strong>{post.likes} likes</strong></p>
                 </div>
