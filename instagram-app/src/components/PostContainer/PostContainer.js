@@ -1,6 +1,6 @@
 import React from "react";
 import './PostContainer.css';
-import PostsPage from "./PostsPage/PostsPage";
+import PostsPage from "./PostsPage";
 
 const PostContainer = ({data, setData, searchResult}) => {
 

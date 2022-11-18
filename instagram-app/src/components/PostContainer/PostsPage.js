@@ -1,6 +1,6 @@
 import React from "react";
-import CommentSection from "../../CommentSection/CommentSection";
-import './PostsPage.css';
+import CommentSection from "../CommentSection/CommentSection";
+import './PostContainer.css';
 import {FaRegComment, FaRegHeart} from "react-icons/fa";
 
 const PostsPage = ({post, data, setData}) => {
