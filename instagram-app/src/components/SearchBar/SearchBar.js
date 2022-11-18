@@ -4,7 +4,7 @@ import './SearchBar.css';
 import {AiOutlineCompass, AiOutlineHeart} from "react-icons/ai";
 import {BsPerson} from "react-icons/bs";
 
-const SearchBar = () => {
+const SearchBar = ({ handleSearch }) => {
 
     return (
         <div className="container">
@@ -12,7 +12,7 @@ const SearchBar = () => {
                 <img className="logo" src={InstaLogo} alt="InstaLogo"/>
             </div>
             <div>
-                <input className="input" type="text" placeholder="Search" />
+                <input className="input" type="text" placeholder="Search" onChange={handleSearch} />
             </div>
             <div className="profile">
                 <AiOutlineCompass /><AiOutlineHeart /><BsPerson />

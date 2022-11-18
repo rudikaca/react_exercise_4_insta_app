@@ -6,6 +6,7 @@ import PostContainer from "./components/PostContainer/PostContainer";
 
 function App() {
   const [data, setData] = useState([]);
+    const [searchResult, setSearchResult] = useState([]);
 
   useEffect(() => {
       if (JSON.parse(window.localStorage.getItem('dummyData')) === null) {
@@ -15,10 +16,22 @@ function App() {
     setData(JSON.parse(window.localStorage.getItem('dummyData')));
   }, []);
 
+    const handleSearch = (e) => {
+        const search = e.target.value;
+        const result = data.filter((post) => {
+            if (search === '') {
+                return post;
+            } else if (post.username.toLowerCase().includes(search.toLowerCase())) {
+                return post;
+            }
+        });
+        setSearchResult(result);
+    }
+
   return (
     <div className="App">
-      <SearchBar />
-      <PostContainer data={data} setData={setData} />
+      <SearchBar handleSearch={handleSearch} />
+      <PostContainer data={data} setData={setData} searchResult={searchResult} />
     </div>
   );
 }
