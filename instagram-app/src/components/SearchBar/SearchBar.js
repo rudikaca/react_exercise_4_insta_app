@@ -3,8 +3,10 @@ import InstaLogo from '../../assets/images/insta_logo.png';
 import './SearchBar.css';
 import {AiOutlineCompass, AiOutlineHeart} from "react-icons/ai";
 import {BsPerson} from "react-icons/bs";
+import {useStateContext} from "../../contexts/ContextProvider";
 
 const SearchBar = ({ handleSearch }) => {
+    const {setIsAuthenticated} = useStateContext();
 
     return (
         <div className="container">
@@ -17,6 +19,7 @@ const SearchBar = ({ handleSearch }) => {
             <div className="profile">
                 <AiOutlineCompass /><AiOutlineHeart /><BsPerson />
             </div>
+            <button onClick={() => setIsAuthenticated(false)}>Logout</button>
         </div>
     )
 }
