@@ -1,17 +1,31 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import './Login.css';
+import { useNavigate } from 'react-router-dom';
 import {useStateContext} from "../../contexts/ContextProvider";
 
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const {setIsAuthenticated} = useStateContext();
+    const [error, setError] = useState(false);
+    const navigate = useNavigate();
+    const {setUser} = useStateContext();
+
+    useEffect(() => {
+        if (JSON.parse(window.localStorage.getItem('user'))) {
+            setUser(JSON.parse(window.localStorage.getItem('user')));
+        } else {
+            navigate('/login');
+        }
+    }, []);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        if (username && password) {
-            setIsAuthenticated(true);
+        localStorage.setItem('user', JSON.stringify(username));
+        if (username === JSON.parse(window.localStorage.getItem('user'))) {
+            if (JSON.parse(window.localStorage.getItem('user')) !== 'Rudi') {
+                setError(true);
+            }
+            setUser(JSON.parse(window.localStorage.getItem('user')));
         }
     }
 
@@ -23,6 +37,7 @@ const Login = () => {
                     <input type="password" placeholder="Password" autoComplete="on" value={password} onChange={(e) => setPassword(e.target.value)} />
                     <button type="submit" disabled={!password || !username}>Login</button>
                 </form>
+                {error && <div className="error"><p>Wrong username</p></div>}
             </div>
         </>
     )
