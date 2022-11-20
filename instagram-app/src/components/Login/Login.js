@@ -32,10 +32,11 @@ const Login = () => {
     return (
         <>
             <div className="login-container">
+                <h1 className="title">Welcome Login Form</h1>
                 <form onSubmit={handleSubmit} className="form">
-                    <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
-                    <input type="password" placeholder="Password" autoComplete="on" value={password} onChange={(e) => setPassword(e.target.value)} />
-                    <button type="submit" disabled={!password || !username}>Login</button>
+                    <input className="form-input" type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
+                    <input className="form-input" type="password" placeholder="Password" autoComplete="on" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <button className="login-button" type="submit" disabled={!password || !username}>Login</button>
                 </form>
                 {error && <div className="error"><p>Wrong username</p></div>}
             </div>
