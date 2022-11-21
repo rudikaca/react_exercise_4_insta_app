@@ -15,6 +15,7 @@ const PostContainer = ({data, setData}) => {
             } else if (post.username.toLowerCase().includes(search.toLowerCase())) {
                 return post;
             }
+            return null;
         });
         setSearchResult(result);
     }

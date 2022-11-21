@@ -16,7 +16,7 @@ const Login = () => {
         } else {
             navigate('/login');
         }
-    }, []);
+    }, [navigate, setUser]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
