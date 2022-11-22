@@ -21,7 +21,7 @@ const PostDetails = ({data}) => {
             </div>
             <div>
                 <div className="title">
-                    Profile photo: <img className="profile-image" src={post.thumbnailUrl} alt="image"/>
+                    Profile photo: <img className="profile-image" src={post.thumbnailUrl} alt="profile-logo"/>
                 </div>
                 <p>likes: {post.likes}</p>
             </div>
