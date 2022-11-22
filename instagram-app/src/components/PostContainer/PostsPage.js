@@ -2,8 +2,10 @@ import React from "react";
 import CommentSection from "../CommentSection/CommentSection";
 import './PostContainer.css';
 import {FaRegComment, FaRegHeart} from "react-icons/fa";
+import {useNavigate} from "react-router-dom";
 
 const PostsPage = ({post, data, setData}) => {
+    const navigate = useNavigate();
 
     const likePost = (postId) => {
         const updatedPost = data?.map((post) => {
@@ -19,6 +21,10 @@ const PostsPage = ({post, data, setData}) => {
         localStorage.setItem('dummyData', JSON.stringify(updatedPost));
     }
 
+    const handlePostDetails = (postId) => {
+        navigate(`/single-post/${postId}`);
+    }
+
     return (
         <>
             <div className="post-container">
@@ -27,7 +33,7 @@ const PostsPage = ({post, data, setData}) => {
                         <img className="profile-image" src={post.thumbnailUrl} alt="logo"/>
                         <p><strong>{post.username}</strong></p>
                     </div>
-                    <div>
+                    <div onClick={() => handlePostDetails(post.id)}>
                         <img className="image" src={post.imageUrl} alt=""/>
                     </div>
                     <div className="icon-container">

@@ -54,3 +54,27 @@
 .active {
     color: red;
 }
+.post-details-container {
+    padding: 30px;
+    color: white;
+}
+.post-details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.title-details-post {
+    font-size: 30px;
+    color: #659696;
+}
+.back-button {
+    color: #527979;
+    background-color: transparent;
+    border: 1px solid #659696;
+    border-radius: 4px;
+    outline: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+}
